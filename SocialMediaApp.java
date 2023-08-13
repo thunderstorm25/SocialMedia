@@ -81,7 +81,8 @@ public class SocialMediaApp {
             }
 
             if (loggedInUser != null) {
-                while (true) {
+                boolean loggedin = true;
+                while (loggedin) {
                     System.out.println("1. Add Friend  2. Create Post  3. Show Friend Requests  4. Logout  5. Exit");
                     int userChoice = scanner.nextInt();
                     scanner.nextLine(); // Consume newline
@@ -113,6 +114,7 @@ public class SocialMediaApp {
                         case 4:
                             System.out.println("Logging out...");
                             loggedInUser = null;
+                            loggedin = false;
                             break;
                         case 5:
                             System.out.println("Exiting...");
@@ -131,7 +133,7 @@ public class SocialMediaApp {
                         }
                     }
                 }
-            }
+            }      
         }
-    }
+    }                            
 }
