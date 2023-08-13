@@ -35,6 +35,8 @@ public class SocialMediaApp {
 
     public void showFriendRequests(User user) {
         System.out.println("Pending friend requests:");
+        System.out.println();
+        System.out.println();
         for (FriendRequest request : friendRequests) {
             if (request.getReceiver() == user) {
                 System.out.println(request.getSender().getUsername());
@@ -83,7 +85,8 @@ public class SocialMediaApp {
             if (loggedInUser != null) {
                 boolean loggedin = true;
                 while (loggedin) {
-                    System.out.println("1. Add Friend  2. Create Post  3. Show Friend Requests  4. Logout  5. Exit");
+                    System.out.println(
+                            "1. Add Friend  2. Create Post  3. Show Friend Requests  4. Logout  5. Exit  6.Show post");
                     int userChoice = scanner.nextInt();
                     scanner.nextLine(); // Consume newline
                     switch (userChoice) {
@@ -124,16 +127,20 @@ public class SocialMediaApp {
                         default:
                             System.out.println("Invalid choice.");
                             break;
+                        case 6:
+                            if (loggedInUser != null) {
+                                System.out.println("Your posts:");
+                                for (Post post : loggedInUser.getPosts()) {
+                                    System.out.println(post.getAuthor().getUsername() + " - " + post.getMessage());
+                                    System.out.println();
+                                    System.out.println();
+                                }
+                            }
+
                     }
 
-                    if (loggedInUser != null) {
-                        System.out.println("Your posts:");
-                        for (Post post : loggedInUser.getPosts()) {
-                            System.out.println(post.getAuthor().getUsername() + " - " + post.getMessage());
-                        }
-                    }
                 }
-            }      
+            }
         }
-    }                            
+    }
 }
