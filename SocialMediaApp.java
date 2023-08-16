@@ -86,7 +86,7 @@ public class SocialMediaApp {
                 boolean loggedin = true;
                 while (loggedin) {
                     System.out.println(
-                            "1. Add Friend  2. Create Post  3. Show Friend Requests  4. Logout  5. Exit  6.Show post");
+                            "1. Add Friend  2. Create Post  3. Show Friend Requests  4. Logout  5.Show post 6.exit");
                     int userChoice = scanner.nextInt();
                     scanner.nextLine(); // Consume newline
                     switch (userChoice) {
@@ -119,15 +119,12 @@ public class SocialMediaApp {
                             loggedInUser = null;
                             loggedin = false;
                             break;
-                        case 5:
+                        case 6:
                             System.out.println("Exiting...");
                             scanner.close();
                             System.exit(0);
                             break;
-                        default:
-                            System.out.println("Invalid choice.");
-                            break;
-                        case 6:
+                        case 5:
                             if (loggedInUser != null) {
                                 System.out.println("Your posts:");
                                 for (Post post : loggedInUser.getPosts()) {
@@ -136,6 +133,10 @@ public class SocialMediaApp {
                                     System.out.println();
                                 }
                             }
+                        default:
+                            System.out.println("Invalid choice.");
+                            break;
+                        
 
                     }
 
